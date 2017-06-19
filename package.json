@@ -1,0 +1,30 @@
+{
+  "name": "node-shell",
+  "version": "1.0.0",
+  "description": "帮助他人更快的学习shell命令，记录各种shell命令的例子和用法",
+  "main": "./bin/shell.js",
+  "bin": {
+    "shell": "./bin/shell.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://shaowin16:shaowen931113@github.com/shaowin16/node-shell.git"
+  },
+  "keywords": [
+    "node-shell",
+    "shell"
+  ],
+  "author": "shaowin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/shaowin16/node-shell/issues"
+  },
+  "homepage": "https://github.com/shaowin16/node-shell#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "minimist": "^1.2.0"
+  }
+}
