@@ -1,12 +1,31 @@
 #!/usr/bin/env node
 
-let program = require('commander');
-console.log(123)
+/**
+ *author:shaowin
+ *date:2017-06-20
+ *desc:linux命令的学习
+ **/
 
-program
-  .version('0.0.1')
-  .command('netstat', '打印Linux中网络系统的状态信息')
-  .command('search [query]', 'search with optional query')
-  .command('list', 'list packages installed')
-  .command('publish', 'publish the package')
-  .parse(process.argv);
+'use strict';
+
+const ALL_COMMAND = [
+    'help',
+    'netstat'
+]
+//shell netstat --help
+let argv = require('minimist')(process.argv.slice(2));
+console.log(argv); //如：
+
+let cmds = argv._;
+
+//获取命令,如netstat
+let firstCommand = cmds.shift();
+console.log(firstCommand);
+
+if (ALL_COMMAND.indexOf(firstCommand) === -1) {
+    if (!!firstCommand) console.log(`${firstCommand} command not found!`); //非null/undefined/0/""值
+    firstCommand = 'help';
+}
+
+let executor = require(`../lib/${firstCommand}.js`)
+executor(argv);
